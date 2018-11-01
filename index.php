@@ -10,7 +10,7 @@
 <!-- Navbar goes here -->
  <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center"><img src="img/logo.png" style="width:45px;height:45px; margin-top: 10px;"> Paperpus</a>
+      <a href="#" class="brand-logo center"><img src="img/logo.png" style="width:45px;height:45px; margin-top: 10px;"> Paperpush</a>
     </div>
   </nav>
         
@@ -27,7 +27,7 @@
     </div>
   </nav>
 
-  <table>
+  <table style="margin-bottom: 100px;">
         <thead>
           <tr>
               <th>NO</th>
@@ -72,6 +72,15 @@
 
 
 </body>
+
+ <footer class="page-footer" style="position: fixed;left: 0;bottom: 0;width: 100%;">
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Paperpush
+            <a class="grey-text text-lighten-4 right" href="#!">Paperpush.com</a>
+            </div>
+          </div>
+        </footer>
 </html>
 
 <?php
