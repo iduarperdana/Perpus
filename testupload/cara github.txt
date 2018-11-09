@@ -1,0 +1,8 @@
+ggit init
+git add .
+git commit -m ""
+git remote add origin (link repository) ini cuma utk pertama
+git push origin master (upload file)
+git pull (download file)
+
+git
