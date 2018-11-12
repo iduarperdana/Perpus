@@ -24,12 +24,24 @@
             </div>
                  <div class="card card-primary">
               		<div class="card-body">
-	                    <form enctype="multipart/form-data" class="form-horizontal" method="POST" action="hasil-upload.php">
+	                    <form class="form-horizontal" method="POST" action="hasil-upload.php">
 	                        <div class="form-group">
-	                            <label for="file" class="d-block" >File yang di upload</label>
-	                                <input id="fupload" type="file" class="form-control" name="fupload" >
+	                            <label for="title" class="d-block" >Judul</label>
+	                                <input id="judul" class="form-control" name="judul" >
 	                        </div>
 	                        <div class="form-group">
+		                        <label for="title" class="d-block" >Kategori buku</label>
+		                       <select id="kategori" class="form-control" name="kategori">                      
+									  <option value="0">--Select Kategori--</option>
+									  <option value="Horor">Horor</option>
+									  <option value="Drama">Drama</option>
+									  <option value="Fiksi">Fiksi</option>
+									  <option value="Fabel">Fabel</option>
+									  <option value="Sejarah">Sejarah</option>
+									  <option value="Scifi">Scifi</option>
+								</select>
+							</div>
+							<div class="form-group">
 	                            <label for="deskripsi" class="d-block">Deskripsi File</label>
 	                                <textarea name="deskripsi" rows="8" cols="110"></textarea>   
 	                        </div>
