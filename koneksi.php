@@ -4,4 +4,8 @@
 	$pass = "";
 	$db = "db_stki";
 	$conn = mysqli_connect($server, $user, $pass, $db);
+
+	if (!$conn) {
+		die("Connection Failed:".mysql_connect_error());
+	}
 ?>

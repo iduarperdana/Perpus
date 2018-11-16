@@ -1,6 +1,7 @@
 
 <?php
 	include ('text-processing/stemming.php');
+	include ('koneksi.php');
 	$text = new Stemming();
 
 ?>
@@ -34,25 +35,69 @@
 			</div>
 		</nav>
 
-		<table style="margin-bottom: 100px;">
-			<thead>
-				<tr>
-					<th>NO</th>
-					<th>Nama Buku</th>
-					<th>Genre</th>
-				</tr>
-			</thead>
-			<tbody>
+				<!-- Input Query -->				
 				<?php
 					if(isset($_POST['search'])){
 						$input = $_POST['search'];
-
 						$stemming = $text->stem($input);
-						echo "kata : ".json_encode($stemming).'<br/>';}
-					?>
 
-					</tbody>
-		</table>
+										
+											foreach ($stemming as $term => $count) {
+												if($term != ""){
+										?>
+										<!-- Pencocokan kata -->
+										<?php 
+										$text = new Stemming();
+										$query=mysqli_query($conn,"SELECT deskripsi FROM upload WHERE id_upload "); 
+										if($rows=mysqli_num_rows($query)>0){ 
+
+
+										?>
+
+										<?php
+
+										while($input = mysqli_fetch_array($query,MYSQLI_ASSOC)){
+										$plain_text=implode($input);
+										$plain_text=explode(PHP_EOL, $plain_text);
+										foreach ($plain_text as $key ) {
+											# code...
+										}
+										$jumlah_dokumen =count($input);
+
+										
+											$stemming = $text->stem($key);
+											foreach ($stemming as $kata => $jumlah) {if($kata != ""){
+										  ?>
+										
+										  <?php
+										  if($result=preg_match("/$term/i", $kata)) {
+										  	//echo ('</br>');
+										  	//echo $key,(" -> ");
+										  	echo $key;
+										  	echo ("kata :"),$kata;
+										  
+										  	echo (" | frekuensi = "),$jumlah.("--");
+										  	
+										  } else {
+										  	unset($kata);
+										  }  
+										  ?>
+										  <?php 
+										  } 
+										}
+									}
+								}
+							
+
+										  ?>
+
+
+										<!-- End Pencocokan -->
+										<?php  
+					}
+				}
+			}
+?>
 
 
 	</body>
