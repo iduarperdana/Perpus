@@ -22,7 +22,7 @@ include ('koneksi.php');
 					$_SESSION['nama_user'] = $user_user['nama_user'];
 					$_SESSION['id_user'] = $user_user['id_user'];
 				}
-				header("Location: index.php");
+				header("Location: test.php");
 				exit();
 			} else {
 				echo "string";
@@ -40,7 +40,7 @@ include ('koneksi.php');
 		if(isset($_SESSION['nama_user'])||isset($_SESSION['nama_admin'])){
 			if(isset($_SESSION['nama_user'])){
 				echo $_SESSION['nama_user'];
-				echo "<a href=\"index.php\">test</a>";
+				echo "<a href=\"test.php\">test</a>";
 			} else {
 				echo $_SESSION['nama_admin'];
 				echo "<a href=\"upload-file.php\">tost</a>";

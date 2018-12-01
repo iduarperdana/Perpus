@@ -37,56 +37,72 @@
 
 				<!-- Input Query -->				
 				<?php
-					if(isset($_POST['search'])){
+				
+
+					if(isset($_POST['search']))
+					{
 						$input = $_POST['search'];
 						$stemming = $text->stem($input);
-
-										
-											foreach ($stemming as $term => $count) {
-												if($term != ""){
-										?>
+							
+							foreach ($stemming as $term => $count) 
+							{
+								if($term != "")
+								{
+								?>
 										<!-- Pencocokan kata -->
-										<?php 
-										$text = new Stemming();
-										$query=mysqli_query($conn,"SELECT deskripsi FROM upload WHERE id_upload "); 
-										if($rows=mysqli_num_rows($query)>0){ 
+									<?php 
+									$text = new Stemming();
+									$query=mysqli_query($conn,"SELECT deskripsi FROM upload WHERE id_upload "); 
+									if($rows=mysqli_num_rows($query)>0)
+									{ 
 
 
-										?>
+									?>
 
 										<?php
 
-										while($input = mysqli_fetch_array($query,MYSQLI_ASSOC)){
-										$plain_text=implode($input);
-										$plain_text=explode(PHP_EOL, $plain_text);
-										foreach ($plain_text as $key ) {
-											# code...
-										}
-										$jumlah_dokumen =count($input);
+										while($input = mysqli_fetch_array($query,MYSQLI_ASSOC))
+										{
+											
+											$plain_text=implode($input);
+											$plain_text=explode(PHP_EOL, $plain_text);
+											foreach ($plain_text as $key ) 
+											{
+												# code...
+											}
+											// $termfreq = array();
+											// unset($termfreq);
+												$jumlah_dokumen =count($input);
+												$stemming = $text->stem($key);
+												foreach ($stemming as $kata => $jumlah) 
+												{
+													if($kata != "")
+													{
+													 		?>
+													
+														  <?php
+														  if($result=preg_match("/$term/i", $kata)) 
+														  {
+														  	// echo ('</br>');
+														  	// echo $key,(" -> ");
+														  	echo $key;
+														  	echo "<br />";
+														  	echo ("kata :"),$kata;
+														  	echo "<br />";
+														  	echo (" | frekuensi = "),$jumlah;
+														  	echo "<br />";
+														  	// $termfreq[] = $jumlah;
+														  } else {
+														  	unset($kata);
+														  }  
+														?>
+														<?php
+												 	} 
 
-										
-											$stemming = $text->stem($key);
-											foreach ($stemming as $kata => $jumlah) {if($kata != ""){
-										  ?>
-										
-										  <?php
-										  if($result=preg_match("/$term/i", $kata)) {
-										  	//echo ('</br>');
-										  	//echo $key,(" -> ");
-										  	echo $key;
-										  	echo ("kata :"),$kata;
-										  
-										  	echo (" | frekuensi = "),$jumlah.("--");
-										  	
-										  } else {
-										  	unset($kata);
-										  }  
-										  ?>
-										  <?php 
-										  } 
+														// echo json_encode($termfreq);
+												}
 										}
 									}
-								}
 							
 
 										  ?>
@@ -94,10 +110,11 @@
 
 										<!-- End Pencocokan -->
 										<?php  
+								}
+							}
 					}
-				}
-			}
-?>
+					
+				?>
 
 
 	</body>

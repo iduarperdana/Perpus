@@ -1,79 +1,92 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  <title> Register </title>
-  
- <link rel="stylesheet" href="dist/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/modules/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
 
-  <link rel="stylesheet" href="dist/css/demo.css">
-  <link rel="stylesheet" href="dist/css/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products Page - Dashboard Template</title>
+    <!--
+
+    Template 2108 Dashboard
+
+  http://www.tooplate.com/view/2108-dashboard
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="css/tooplate.css">
 </head>
 
 
- <div id="app">
-    <section class="section">
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
-            <div class="login-brand">
-             REGISTER
-            </div>
-
-            <div class="card card-primary">
-              <div class="card-body">
-                    <form class="form-horizontal" method="POST" action="test-register.php">
-                        <div class="form-group">
-                            <label for="name" class="d-block" >Name</label>
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+<body class="bg03">
+    <div class="container">
+        <div class="row tm-mt-big">
+            <div class="col-12 mx-auto tm-login-col">
+                <div class="bg-white tm-block">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <i class="fas fa-3x fa-tachometer-alt tm-site-icon text-center"></i>
+                            <h2 class="tm-block-title mt-3">Register</h2>
                         </div>
-
-                        <div class="form-group">
-                            <label for="email" class="d-block">E-Mail Address</label>
-                                <input id="email" type="email" class="form-control" name="email" value="" required>     
-                        </div>
-                      <div class="row">
-                        <div class="form-group col-6">
-                            <label for="password" class="d-block">Password</label>
-                                <input id="password" type="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <form action="test-register.php" method="post" class="tm-login-form">
+                                <div class="input-group">
+                                    <label for="name" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Nama</label>
+                                   <input id="name" type="text" class="form-control" name="name" value="" tabindex="1" required autofocus>
+                                </div>
+                                <div class="input-group mt-3">
+                                    <label for="email" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Email Address</label>
+                                   <input id="email" type="email" class="form-control" name="email" tabindex="2" required>
+                                </div>
+                                
+                                <div class="input-group mt-3">
+                                    <label for="password" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Password</label>
+                                   <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                </div>
+                                <div class="input-group mt-3">
+                                    <label for="confirm_pass" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Confirm Password</label>
+                                   <input id="confirm_pass type="password" class="form-control" name="confirm_pass" tabindex="2" required>
+                                </div>
+                                <div class="input-group mt-3">
+                                    <button type="submit" class="btn btn-primary d-inline-block mx-auto">Submit</button>
+                                </div>
                                
+                            </form>
                         </div>
-
-                        <div class="form-group col-6">
-                            <label for="confirm_pass" class="d-block">Confirm Password</label>
-                                <input id="confirm_pass" type="password" class="form-control" name="confirm_pass" required>
-                        </div>
-                      </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-            <div class="simple-footer">
-              Copyright &copy; Paperpush
-            </div>
+        </div>
+        <footer class="row tm-mt-small">
+                <div class="col-12 font-weight-light">
+                    <p class="d-inline-block tm-bg-black text-white py-2 px-4">
+                        Copyright &copy; 2018. Created by
+                        <a href="http://www.tooplate.com" class="text-white tm-footer-link"></a> |  TI UDAYANA 2018 <a href="#" class="text-white tm-footer-link">Paperpush</a>
+                    </p>
+                </div>
+            </footer>
         </div>
     </div>
-</div>
-</section>
-</div>
-
-  <script src="dist/modules/jquery.min.js"></script>
-  <script src="dist/modules/popper.js"></script>
-  <script src="dist/modules/tooltip.js"></script>
-  <script src="dist/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="dist/modules/moment.min.js"></script>
- 
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+        $(function () {
+            $('.tm-product-name').on('click', function () {
+                window.location.href = "edit-product.html";
+            });
+        })
+    </script>
 </body>
+
 </html>

@@ -11,7 +11,7 @@
 
     Template 2108 Dashboard
 
-	http://www.tooplate.com/view/2108-dashboard
+    http://www.tooplate.com/view/2108-dashboard
 
     -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
@@ -22,7 +22,13 @@
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="css/tooplate.css">
 </head>
+     <?php
+            include ("koneksi.php");
+            $idup = $_GET['up'];
+            $hasil = $conn->query("SELECT * FROM upload WHERE id_upload='$idup'");
+            $baris = mysqli_fetch_array($hasil);
 
+    ?>
 <body id="reportsPage" class="bg02">
     <div class="" id="home">
         <div class="container">
@@ -66,45 +72,47 @@
             </div>
             <br>
 
-  	<div class="row tm-mt-big">
+    <div class="row tm-mt-big">
             <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12">
                 <div class="bg-white tm-block">
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="tm-block-title d-inline-block">Add Books</h2>
+                            <h2 class="tm-block-title d-inline-block">Update Books</h2>
                         </div>
                     </div>
                     <div class="row mt-4 tm-edit-product-row">
                         <div class="col-xl-10 col-lg-10 col-md-12">
-                            <form class="tm-edit-product-form" method="POST" action="products.php">
+                            <form class="tm-edit-product-form" method="POST" action="edit-data.php">
+                           
+                                <input type="hidden" name="id_f" value="<?php echo "$idup"; ?>">
                                 <div class="input-group mb-3">
                                     <label for="judul" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Book Title
                                     </label>
-                                    <input id="judul" name="judul" type="text" class="form-control validate col-xl-10 col-lg-10 col-md-10 col-sm-8">
+                                    <input id="judul" name="judul" type="text" class="form-control validate col-xl-10 col-lg-10 col-md-10 col-sm-8" value="<?php echo "$baris[nama_file]"; ?>">
                                 </div>
                               
                                 <div class="input-group mb-3">
                                     <label for="category" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label">Category</label>
                                     <select class="custom-select col-xl-9 col-lg-8 col-md-8 col-sm-7" id="kategori" name="kategori">
                                                             
-									  <option value="0">--Select Kategori--</option>
-									  <option value="Horor">Horor</option>
-									  <option value="Drama">Drama</option>
-									  <option value="Fiksi">Fiksi</option>
-									  <option value="Fabel">Fabel</option>
-									  <option value="Sejarah">Sejarah</option>
-									  <option value="Scifi">Scifi</option>
-								
+                                      <option value="0">--Select Kategori--</option>
+                                      <option value="Horor">Horor</option>
+                                      <option value="Drama">Drama</option>
+                                      <option value="Fiksi">Fiksi</option>
+                                      <option value="Fabel">Fabel</option>
+                                      <option value="Sejarah">Sejarah</option>
+                                      <option value="Scifi">Scifi</option>
+                                
                                     </select>
                                 </div>
                                   <div class="input-group mb-3">
                                     <label for="description" class="col-xl-4 col-lg-4 col-md-4 col-sm-5 mb-2">Description</label>
-                                    <textarea name="deskripsi" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" rows="3" required></textarea>
+                                    <textarea name="deskripsi" class="form-control validate col-xl-9 col-lg-8 col-md-8 col-sm-7" rows="3" required><?php echo "$baris[deskripsi]"; ?></textarea>
                                 </div>
                                 
                                 <div class="input-group mb-3">
                                     <div class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0">
-                                        <button type="submit" class="btn btn-primary">Add
+                                        <button type="submit" name="update" class="btn btn-primary">Update
                                         </button>
                                     </div>
                                 </div>

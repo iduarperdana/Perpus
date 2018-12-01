@@ -2,17 +2,26 @@
 
 <?php		
 include('koneksi.php');//Koneksi ke database			
-// function cekKamus($kata){
-// 	// cari di database	
-// 	$sql = "SELECT * from tb_katadasar where katadasar ='$kata' LIMIT 1";
-// 	//echo $sql.'<br/>';
-// 	$result = mysqli_query($sql) or die(mysqli_error());  
-// 	if(mysqli_num_rows($result)==1){
-// 		return true; // True jika ada
-// 	}else{
-// 		return false; // jika tidak ada FALSE
-// 	}
-// }
+function cekKamus($kata){
+	// cari di database	public function katadasar(){
+	$katadasar = file_get_contents('text-processing/katadasar.txt');
+	$katadasar = $this->katadasar();
+		if(in_array($kata, $katadasar)){
+				$hasil = 1;
+			} else {
+				$hasil = 0;
+			}
+			return $hasil; //memberikan jawaban kata ada di database atau tidak	
+		
+	// $sql = "SELECT * from tb_katadasar where katadasar ='$kata' LIMIT 1";
+	// //echo $sql.'<br/>';
+	// $result = mysqli_query($sql) or die(mysqli_error());  
+	// if(mysqli_num_rows($result)==1){
+	// 	return true; // True jika ada
+	// }else{
+	// 	return false; // jika tidak ada FALSE
+	// }
+}
 // Hapus Inflection Suffixes (“-lah”, “-kah”, “-ku”, “-mu”, atau “-nya”)
 function Del_Inflection_Suffixes($kata){ 
 	$kataAsal = $kata;
